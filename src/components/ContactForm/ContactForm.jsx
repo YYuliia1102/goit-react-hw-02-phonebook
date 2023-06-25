@@ -41,27 +41,35 @@ class ContactForm extends Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <h3>Name:</h3>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={name}
-                    onChange={this.handleChange}
-                    required
-                />
+                <div className="mb-3">
+                    <label htmlFor="name" className="form-label">Name:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        className="form-control"
+                        name="name"
+                        placeholder="Name"
+                        value={name}
+                        onChange={this.handleChange}
+                        required
+                    />
+                </div>
 
-                <h3>Number:</h3>
-                <input
-                    type="tel"
-                    name="number"
-                    placeholder="+380(97)-000-00-00"
-                    value={number}
-                    onChange={this.handleChange}
-                    required
-                />
+                <div className="mb-3">
+                    <label htmlFor="number" className="form-label">Number:</label>
+                    <input
+                        type="tel"
+                        id="number"
+                        className="form-control"
+                        name="number"
+                        placeholder="+380(97)-000-00-00"
+                        value={number}
+                        onChange={this.handleChange}
+                        required
+                    />
+                </div>
 
-                <button type="submit">Add contact</button>
+                <button type="submit" className="btn btn-primary">Add contact</button>
             </form>
         );
     }

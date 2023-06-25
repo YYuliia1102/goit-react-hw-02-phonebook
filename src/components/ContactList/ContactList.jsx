@@ -8,7 +8,7 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
     );
 
     return (
-        <ul>
+        <ul className="list-group">
             {filteredContacts.map((contact) => (
                 <ContactItem key={contact.id} contact={contact} onDeleteContact={onDeleteContact} />
             ))}

@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Filter extends Component {
-    handleFilterChange = (event) => {
-        this.props.onFilterChange(event.target.value);
-    };
-
-    render() {
-        return (
+const Filter = ({ filter, onFilterChange }) => {
+    return (
+        <div className="mb-3">
+            <label htmlFor="filter" className="form-label">Search contacts:</label>
             <input
                 type="text"
-                placeholder="Search by name"
-                onChange={this.handleFilterChange}
+                id="filter"
+                className="form-control"
+                value={filter}
+                onChange={onFilterChange}
             />
-        );
-    }
-}
+        </div>
+    );
+};
 
 Filter.propTypes = {
     filter: PropTypes.string.isRequired,
