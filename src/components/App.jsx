@@ -21,20 +21,25 @@ class App extends Component {
 
   handleAddContact = (name, number) => {
     const { contacts } = this.state;
-    const newContact = { id: nanoid(), name, number };
+    const existingContact = contacts.find(
+      (contact) => contact.name.toLowerCase() === name.toLowerCase()
+    );
 
-    this.setState({
-      contacts: [...contacts, newContact]
-    });
+    if (existingContact) {
+      alert(`Contact '${name}' already exists!`);
+      return;
+    }
+
+    const newContact = { id: nanoid(), name, number };
+    this.setState((prevState) => ({
+      contacts: [...prevState.contacts, newContact]
+    }));
   };
 
   handleDeleteContact = (id) => {
-    const { contacts } = this.state;
-    const updatedContacts = contacts.filter((contact) => contact.id !== id);
-
-    this.setState({
-      contacts: updatedContacts
-    });
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== id)
+    }));
   };
 
   render() {

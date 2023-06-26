@@ -25,12 +25,8 @@ class ContactForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const { name, number } = this.state;
-        const { contacts, onAddContact } = this.props;
+        const { onAddContact } = this.props;
 
-        if (contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase())) {
-            alert('Contact already exists!');
-            return;
-        }
 
         onAddContact(name, number);
         this.setState({ name: '', number: '' });
